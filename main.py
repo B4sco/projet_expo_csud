@@ -5,16 +5,33 @@ import random
 import time
  
 from pygame.locals import *
+
+from datetime import datetime
+
  
 class Config:
     SCREEN_WIDTH = 3840
     SCREEN_HEIGHT = 2160
     SCREEN_SIZE = (SCREEN_WIDTH, SCREEN_HEIGHT)
-    desired_fps = 60
-
+    desired_fps = 1
+    date1 = '2024-03-05 12:00:00'
+    date2 = '2024-03-05 12:01:00'
+    
 def quit():
     pygame.quit()
     sys.exit()
+    
+def difference_en_secondes(date1, date2):
+    # Conversion des chaînes de caractères en objets datetime
+    date1 = datetime.strptime(date1, '%Y-%m-%d %H:%M:%S')
+    date2 = datetime.strptime(date2, '%Y-%m-%d %H:%M:%S')
+    
+    # Calcul de la différence en secondes
+    difference = abs((date2 - date1).total_seconds())
+    
+    return int(difference)
+ 
+difference_secondes = difference_en_secondes(Config.date1,Config.date2)
  
 def main():
     # Create a clock object
@@ -29,6 +46,12 @@ def main():
     except IOError as e:
         print(f"{str(e)}")
         quit()
+    
+    #fabriquer liste coordonnées possibles    
+    pixels = [(x,y) for x in range(Config.SCREEN_WIDTH) for y in range(Config.SCREEN_HEIGHT)]
+
+    #mélanger cette liste
+
     nb_pixels = Config.SCREEN_HEIGHT * Config.SCREEN_WIDTH
     print("nb pixels", nb_pixels)
     # Start the main loop
@@ -42,8 +65,8 @@ def main():
                 # quit when Q is pressed
                 if event.key == K_q:
                     quit()
- 
-        for _ in range(10000):
+         
+        for _ in range(nb_pixels//difference_secondes):
             x = random.randint(0, Config.SCREEN_WIDTH - 1)
             y = random.randint(0, Config.SCREEN_HEIGHT - 1)
             color = surf2.get_at((x, y))
