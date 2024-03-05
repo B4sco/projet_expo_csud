@@ -57,6 +57,7 @@ def main():
     print("nb pixels", nb_pixels)
     # Start the main loop
     while True:
+        current_time = datetime.nom()
         # Get events from the event queue
         for event in pygame.event.get():
             # Check for the quit event
@@ -68,11 +69,10 @@ def main():
                     quit()
          
         for i in range(nb_pixels//difference_secondes):
-            x,y = pixels[i]
+            x,y = pixels[i+difference_en_secondes(Config.date1, current_time)]
             color = surf2.get_at((x, y))
             surf1.set_at((x, y), color)
 
- 
         # Update the game state
         display.blit(surf1, (0, 0))
         # Draw the game screen
