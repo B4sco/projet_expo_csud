@@ -51,7 +51,8 @@ def main():
     pixels = [(x,y) for x in range(Config.SCREEN_WIDTH) for y in range(Config.SCREEN_HEIGHT)]
 
     #mélanger cette liste
-
+    random.shuffle(pixels)
+    
     nb_pixels = Config.SCREEN_HEIGHT * Config.SCREEN_WIDTH
     print("nb pixels", nb_pixels)
     # Start the main loop
@@ -66,9 +67,8 @@ def main():
                 if event.key == K_q:
                     quit()
          
-        for _ in range(nb_pixels//difference_secondes):
-            x = random.randint(0, Config.SCREEN_WIDTH - 1)
-            y = random.randint(0, Config.SCREEN_HEIGHT - 1)
+        for i in range(nb_pixels//difference_secondes):
+            x,y = pixels[i]
             color = surf2.get_at((x, y))
             surf1.set_at((x, y), color)
 
