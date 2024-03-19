@@ -44,7 +44,12 @@ def main():
 
     #mélanger cette liste
     random.shuffle(pixels)
-    
+    json_liste = json.dumps(pixels)
+    filename : str = "pixels.json"
+    file = open(filename, "w")
+    file.write(json_liste)
+    file.close()
+ 
     nb_pixels = Config.SCREEN_HEIGHT * Config.SCREEN_WIDTH
     print("nb pixels", nb_pixels)
     # Start the main loop
