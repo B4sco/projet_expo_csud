@@ -38,7 +38,7 @@ def main():
     except IOError as e:
         print(f"{str(e)}")
         quit()
-    
+     
     #fabriquer liste coordonnées possibles    
     pixels = [(x,y) for x in range(Config.SCREEN_WIDTH) for y in range(Config.SCREEN_HEIGHT)]
 
