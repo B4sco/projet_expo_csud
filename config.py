@@ -3,5 +3,5 @@ class Config:
     SCREEN_HEIGHT = 2160
     SCREEN_SIZE = (SCREEN_WIDTH, SCREEN_HEIGHT)
     desired_fps = 1
-    date1 = '2024-03-05 12:00:00'
-    date2 = '2024-03-05 12:01:00'
+    date1 = '2024-04-15 08:00:00'
+    date2 = '2024-04-19 16:00:00'
