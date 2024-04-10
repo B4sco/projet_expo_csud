@@ -19,7 +19,7 @@ def quit():
     sys.exit()
 
 
-# Cette fonction a été demandé à chatgpt avec le prompt : "Donne moi une code python qui calcul le nombre de seconde entre des dates et heures différentes"
+# Cette fonction a été demandée à chatgpt avec le prompt : "Donne moi une code python qui calcul le nombre de seconde entre des dates et heures différentes"
 
 
 def difference_en_secondes(date1, date2):
